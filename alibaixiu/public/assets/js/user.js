@@ -31,3 +31,28 @@ $("#avatar").on('change',function(){
         }
     });
 })
+//添加用户
+$("#usersub").on('click',function(){
+    var formdata = $('#form').serialize();
+    $.ajax({
+        type:'post',
+        url:'/users',
+        data:formdata,
+        success:function(res){
+            $(".alert-danger").hide();
+            $("#resetInfo").trigger("click");
+            $("#img").attr('src','../assets/img/default.png');
+            $("#imgurl").val('')
+            userlist.unshift(res);
+            render();
+        },
+        error:function(err){
+            console.log(err)
+            msg(JSON.parse(err.responseText).message)
+        }          
+    })
+});
+function msg(m){
+    $(".alert-danger").show();
+    $(".alert-danger span").html(m);
+}
