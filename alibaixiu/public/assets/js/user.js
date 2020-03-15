@@ -113,7 +113,7 @@ $("#useredi").on('click',function(){
 //删除单个用户
 $("#userlist").on('click','.del',function(){
     var id = $(this).attr('data-id');
-    var isdel = confirm("确认删除此项？");
+    var isdel = confirm("确认删除？");
     if(isdel){
         $.ajax({
             type:'delete',
@@ -155,7 +155,7 @@ $("#userlist").on('change','[type="checkbox"]',function(){
 //点击删除按钮
 $(".dellist").on('click',function(){
     var id = ischeckedId();
-    var isdel = confirm("确认删除此项？");
+    var isdel = confirm("确认删除？");
     if(isdel){
         $.ajax({
             type:'delete',
