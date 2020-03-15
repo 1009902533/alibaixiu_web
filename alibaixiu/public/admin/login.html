@@ -53,8 +53,9 @@
                 email:email,
                 password:password
                 },
-                success:function(){
+                success:function(res){
                   location.href = 'index.html'
+                  console.log(res)
                 },
                 error:function(err){
                     msg(JSON.parse(err.responseText).message);
