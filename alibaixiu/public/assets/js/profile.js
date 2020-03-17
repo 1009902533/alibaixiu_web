@@ -34,6 +34,7 @@ $("#gengxin").on("click",function(){
             avatar:myavatar
         },
         success: function (res) {
+            $(".alert-danger").hide();
             console.log(res)
         }
     });

@@ -11,6 +11,13 @@ $.ajax({
 function render(){
     var html = template('tpl',{data:userlist})
     $("#userlist").html(html)
+    if($("#userlist").children().length == 0){
+        $("#all").prop('checked',false);
+        var str = `<tr>
+            <td colspan="4" align="center">暂无数据</td>
+        </tr>`
+        $("#userlist").html(str)
+    }
     isshow()
 }
 //上传头像
@@ -120,6 +127,14 @@ $("#userlist").on('click','.del',function(){
             type:'delete',
             url:'/users/' + id,
             success:function(res){
+                $(".alert-danger").hide();
+                $("#resetInfo").trigger("click");
+                $("#img").attr('src','../assets/img/default.png');
+                $("#imgurl").val('');
+                $('[name="email"]').attr('disabled',false);
+                $('[name="password"]').attr('disabled',false);
+                $("#usersub").show();
+                $("#useredi").hide();
                 var index = userlist.findIndex((item)=>{
                     return item._id === res._id
                 })
@@ -166,6 +181,14 @@ $(".dellist").on('click',function(){
             type:'delete',
             url:'/users/' + arr.join('-'),
             success:function(res){
+                $(".alert-danger").hide();
+                $("#resetInfo").trigger("click");
+                $("#img").attr('src','../assets/img/default.png');
+                $("#imgurl").val('');
+                $('[name="email"]').attr('disabled',false);
+                $('[name="password"]').attr('disabled',false);
+                $("#usersub").show();
+                $("#useredi").hide();
                 res.forEach((i) => {
                     var index = userlist.findIndex((item)=>{
                         return item._id === i._id
