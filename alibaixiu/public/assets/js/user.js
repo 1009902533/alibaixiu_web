@@ -11,6 +11,7 @@ $.ajax({
 function render(){
     var html = template('tpl',{data:userlist})
     $("#userlist").html(html)
+    isshow()
 }
 //上传头像
 $("#avatar").on('change',function(){
@@ -134,46 +135,43 @@ $("#userlist").on('click','.del',function(){
 })
 
 //删除多个用户
-function ischeckedId(){
-    var str = '';
-    $.each($("#userlist input:checked"), function (index, item) { 
-        str += $(item).parent('td').siblings('td').children(".edi").attr('data-id') + '-'
-    });
-    return str.substr(0, str.length - 1)
+function isshow(){
+    if($("#userlist input:checked").length > 1){
+        $(".dellist").show();
+    } else {
+        $(".dellist").hide();
+    }
 }
+
 $("#all").on("click",function(){
-    $(".dellist").show();
-    $('[type="checkbox"]').prop('checked',$(this).prop('checked'))
-    if($("#userlist input:checked").length === 0) return $(".dellist").hide();
+    $('#userlist [type="checkbox"]').prop('checked',$(this).prop('checked'))
+    isshow()
 })
 $("#userlist").on('change','[type="checkbox"]',function(){
-    $(".dellist").show();
     var choses = $("#userlist input:checked").length === $("#userlist input").length;
     $("#all").prop("checked",choses);
-    if($("#userlist input:checked").length === 0) return $(".dellist").hide();
+    isshow()
 })
+
+
 //点击删除按钮
 $(".dellist").on('click',function(){
-    var id = ischeckedId();
+    var arr = [];
+    $.each($("#userlist input:checked"), function (index, item) { 
+        arr.push($(item).parent('td').siblings('td').children(".edi").attr('data-id'))
+    });
     var isdel = confirm("确认删除？");
     if(isdel){
         $.ajax({
             type:'delete',
-            url:'/users/' + id,
+            url:'/users/' + arr.join('-'),
             success:function(res){
-                if(typeof res === Array) {
-                    res.forEach((i) => {
-                        var index = userlist.findIndex((item)=>{
-                            return item._id === i._id
-                        })
-                        userlist.splice(index,1);
-                    });
-                } else {
+                res.forEach((i) => {
                     var index = userlist.findIndex((item)=>{
-                        return item._id === res._id
+                        return item._id === i._id
                     })
                     userlist.splice(index,1);
-                }
+                });
                 render()
             },
             error:function(err){
