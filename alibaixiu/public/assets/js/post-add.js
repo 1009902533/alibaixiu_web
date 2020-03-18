@@ -1,3 +1,8 @@
+var date = new Date();
+var y = date.getFullYear();
+var m = (date.getMonth() + 1).toString().padStart(2,'0');
+var d = date.getDate().toString().padStart(2,'0');
+$("#created").val(y + '-' + m + '-' + d);
 $.ajax({
     type: "get",
     url: "/categories",
