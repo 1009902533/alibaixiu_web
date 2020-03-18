@@ -1,5 +1,11 @@
+//获取分类value和文章状态
 var fenlei = $("#allfenlei").val();
 var zhuangtai = $("#allchange").val();
+//获取文章列表
+/** 
+ * es6语法:预定义参数值，如果不传递该参数，
+ * 则为默认值，如果传递就取传递的值
+ **/
 function render(cid,state,page = 1){
     $.ajax({
         type: "get",
@@ -17,12 +23,12 @@ function render(cid,state,page = 1){
         }
     });
 }
-
+//渲染文章列表
 render(fenlei,zhuangtai);
 function pages(index) {
     render(fenlei,zhuangtai,index);
 }
-    
+//获取所有分类  
 $.ajax({
     type:"get",
     url:"/categories",
