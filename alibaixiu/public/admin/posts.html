@@ -111,15 +111,15 @@
   <script src="../assets/js/posts.js"></script>
   <script type="text/html" id="tpl">
   {{each data}}
-      <tr data-id="{{$value._id}}">
+      <tr>
           <td>{{$value.title}}</td>
           <td>{{$value.author.nickName}}</td>
           <td>{{$value.category.title}}</td>
-          <td class="text-center">{{$value.createAt.substr(0,10)}}</td>
+          <td class="text-center">{{$value.createAt.substr(0,16).replace('T',' ')}}</td>
           <td class="text-center">{{$value.state === 0 ? '草稿' : '已发布'}}</td>
           <td class="text-center">
-            <a href="javascript:;" class="btn btn-default btn-xs">编辑</a>
-            <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+            <a href="post-add.html?id={{$value._id}}" class="btn btn-default btn-xs">编辑</a>
+            <a href="javascript:;" class="btn btn-danger btn-xs del"  data-id="{{$value._id}}">删除</a>
           </td>
       </tr>
   {{/each}}
@@ -130,7 +130,7 @@
   {{/each}}
   </script>
   <script type="text/html" id="pagemain">
-        {{if page > 1}}
+        {{if page > 1 && pages > 0}}
         <li><a href="#" onclick="pages({{page - 1}})">上一页</a></li>
         {{/if}}
         {{each display}}

@@ -1,3 +1,4 @@
+var delpage = 1;
 //获取分类value和文章状态
 var fenlei = $("#allfenlei").val();
 var zhuangtai = $("#allchange").val();
@@ -16,16 +17,27 @@ function render(cid,state,page = 1){
             page:page
         },
         success: function (res) {
+            console.log(res)
             var html = template('tpl',{data:res.records});
             $("#wzlist").html(html);
             var pagehtml = template('pagemain',res);
             $("#pagelist").html(pagehtml);
+            if($("#wzlist tr").length == 0){
+                var str = `<tr>
+                    <td colspan="6" align="center">暂无数据</td>
+                </tr>`
+                $("#wzlist").html(str);
+            } else if($("#wzlist tr").length == 1 && page != 1){
+                delpage = page - 1
+            }
         }
     });
 }
 //渲染文章列表
 render(fenlei,zhuangtai);
+
 function pages(index) {
+    delpage = index;
     render(fenlei,zhuangtai,index);
 }
 //获取所有分类  
@@ -42,4 +54,18 @@ $("#shaixuan").on('click',function(){
     fenlei = $("#allfenlei").val();
     zhuangtai = $("#allchange").val();
     render(fenlei,zhuangtai);
+})
+
+//删除文章
+$("#wzlist").on('click','.del',function(){
+    var id = $(this).attr('data-id');
+    if(confirm('是否确认删除？')) {
+        $.ajax({
+            type:'DELETE',
+            url:'/posts/' + id,
+            success:function(){
+                render(fenlei,zhuangtai,delpage);
+            }
+        });
+    }
 })
