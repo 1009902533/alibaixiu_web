@@ -58,7 +58,7 @@
   <script src="assets/vendors/art-template/template-web.js"></script>
   <script src="assets/js/public.js"></script>
   <script id="newAc" type="text/html">
-    <h3>{{data[0] ? data[0].category.title : '暂无数据'}}</h3>
+    <h3>{{data[0] ? '' : '暂无数据'}}</h3>
     {{each data}}
         <div class="entry">
           <div class="head">
@@ -89,7 +89,7 @@
   <script>
       $.ajax({
           type:'get',
-          url:'/posts/category/' + id,
+          url:'/posts/search/' + keys,
           success:function(res){
             console.log(res)
               var html = template('newAc',{data:res});

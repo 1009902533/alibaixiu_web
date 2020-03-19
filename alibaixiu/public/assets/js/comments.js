@@ -1,15 +1,3 @@
-// $.ajax({
-//     type: "post",
-//     url: "/comments",
-//     data: {
-//         author:'张三',
-//         content:'好棒棒！！！',
-//         post:'5e720e91efe7ad1c5cf63dc8'
-//     },
-//     success: function (res) {
-//         console.log(res)
-//     }
-// });
 var curruntPage;
 function render(page = 1){
     $.ajax({

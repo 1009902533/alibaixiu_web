@@ -19,6 +19,18 @@ const SettingSchema = new Schema({
 		minlength: 2,
 		maxlength: 30
 	},
+	// 站点描述
+	description: {
+		type: String,
+		required: true,
+		minlength: 2
+	},
+	// 站点关键词
+	keywords: {
+		type: String,
+		required: true,
+		minlength: 2
+	},
 	// 是否开启评论功能
 	comment: {
 		type: Boolean,

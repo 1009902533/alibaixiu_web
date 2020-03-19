@@ -1,0 +1,52 @@
+//上传网站图标
+$("#logo").on('change',function(){
+    var formdata = new FormData();
+    formdata.append('imgSrc',this.files[0]);
+    $.ajax({
+        type:'post',
+        url:'/upload',
+        data:formdata,
+        //不解析formData
+        processData:false,
+        //不添文件加类型
+        contentType:false,
+        success:function(res){
+            console.log(res)
+            $("#img").attr('src',res[0].imgSrc);
+            $("#imgurl").val(res[0].imgSrc)
+        },
+        error:function(err){
+            console.log(err)
+        }
+    });
+});
+//获取网站设置
+$.ajax({
+    type:'get',
+    url:'/settings',
+    success:function(res){
+        // console.log(res)
+        $("#img").attr('src',res.logo);
+        $("#imgurl").val(res.logo);
+        $("#site_name").val(res.title);
+        $("#site_description").val(res.description);
+        $("#site_keywords").val(res.keywords);
+        $("#comment_status").prop('checked',res.comment);
+        $("#comment_reviewed").prop('checked',res.review);
+    }
+});
+//网站设置
+$("#setBtn").on('click',function(){
+    $("#status-h").val($("#comment_status").prop('checked'));
+    $("#reviewed-h").val($("#comment_reviewed").prop('checked'));
+    var data = $("form").serialize();
+    $.ajax({
+        type:'post',
+        url:'/settings',
+        data:data,
+        success:function(res){
+            console.log(res)
+            location.reload()
+        }
+    });
+});

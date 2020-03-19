@@ -6,24 +6,84 @@
   <title>阿里百秀-发现生活，发现美!</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
+  <script src="assets/vendors/nprogress/nprogress.js"></script>
+  <style>
+  .msgbox {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+  }
+  .msgbox div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30%;
+    text-align: center;
+  }
+  .msgbox span {
+    background: rgba(0,0,0,.5);
+    border-radius: 4px;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px 10px;
+  }
+  #pllb {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: none;
+  }
+  #pllb .widgets {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  #pllb .widgets .body {
+    clear: both;
+  }
+  #pllb .discuz li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  #pllb .discuz li > a {
+      display: block;
+  }
+  #pllb .discuz .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    float: left;
+  }
+  #pllb .discuz .txt {
+    line-height: 20px;
+    padding-left: 50px;
+    font-size: 12px;
+    color: #999;
+  }
+  #pllb .discuz .txt span {
+    color: #666;
+    margin-right: 5px;
+  }
+  </style>
 </head>
 <body>
+    <script>NProgress.start()</script>
   <div class="wrapper">
     <div class="topnav">
-      <ul>
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
-        <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
-        <li><a href="javascript:;"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+      <ul class="qqs-nav">
+
       </ul>
     </div>
     <div class="header">
       <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" alt=""></a></h1>
-      <ul class="nav">
-        <li><a href="javascript:;"><i class="fa fa-glass"></i>奇趣事</a></li>
-        <li><a href="javascript:;"><i class="fa fa-phone"></i>潮科技</a></li>
-        <li><a href="javascript:;"><i class="fa fa-fire"></i>会生活</a></li>
-        <li><a href="javascript:;"><i class="fa fa-gift"></i>美奇迹</a></li>
+      <ul class="nav qqs-nav">
+
       </ul>
       <div class="search">
         <form>
@@ -42,192 +102,188 @@
           </form>
         </div>
       </div>
-      <div class="widgets">
-        <h4>随机推荐</h4>
-        <ul class="body random">
-          <li>
-            <a href="javascript:;">
-              <p class="title">废灯泡的14种玩法 妹子见了都会心动</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_1.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">可爱卡通造型 iPhone 6防水手机套</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_2.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">变废为宝！将手机旧电池变为充电宝的Better</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_3.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">老外偷拍桂林芦笛岩洞 美如“地下彩虹”</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_4.jpg" alt="">
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <p class="title">doge神烦狗打底南瓜裤 就是如此魔性</p>
-              <p class="reading">阅读(819)</p>
-              <div class="pic">
-                <img src="uploads/widget_5.jpg" alt="">
-              </div>
-            </a>
-          </li>
-        </ul>
+      <div class="widgets" id="suiji">
+
       </div>
-      <div class="widgets">
-        <h4>最新评论</h4>
-        <ul class="body discuz">
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_2.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_2.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <div class="avatar">
-                <img src="uploads/avatar_1.jpg" alt="">
-              </div>
-              <div class="txt">
-                <p>
-                  <span>鲜活</span>2020-02-01说:
-                </p>
-                <p>挺会玩的</p>
-              </div>
-            </a>
-          </li>
-        </ul>
+      <div class="widgets" id="znewlist">
+
       </div>
     </div>
     <div class="content">
       <div class="article">
-        <div class="breadcrumb">
-          <dl>
-            <dt>当前位置：</dt>
-            <dd><a href="javascript:;">奇趣事</a></dd>
-            <dd>变废为宝！将手机旧电池变为充电宝的Better RE移动电源</dd>
-          </dl>
-        </div>
-        <h2 class="title">
-          <a href="javascript:;">又现酒窝夹笔盖新技能 城里人是不让人活了！</a>
-        </h2>
-        <div class="meta">
-          <span>DUX主题小秘 发布于 2020-06-29</span>
-          <span>分类: <a href="javascript:;">奇趣事</a></span>
-          <span>阅读: (2421)</span>
-          <span>评论: (143)</span>
-        </div>
+        
       </div>
+      <div class="widgets" id="pllb"></div>
       <div class="panel hots">
-        <h3>热门推荐</h3>
-        <ul>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_2.jpg" alt="">
-              <span>星球大战:原力觉醒视频演示 电影票68</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_3.jpg" alt="">
-              <span>你敢骑吗？全球第一辆全功能3D打印摩托车亮相</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_4.jpg" alt="">
-              <span>又现酒窝夹笔盖新技能 城里人是不让人活了！</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              <img src="uploads/hots_5.jpg" alt="">
-              <span>实在太邪恶！照亮妹纸绝对领域与私处</span>
-            </a>
-          </li>
-        </ul>
+
       </div>
     </div>
     <div class="footer">
       <p>© 2016 XIU主题演示 本站主题由 themebetter 提供</p>
     </div>
   </div>
+  <div class="msgbox">
+      <div>
+          <span></span>
+      </div>
+  </div>
+  <script src="assets/vendors/jquery/jquery.js"></script>
+  <script src="assets/vendors/art-template/template-web.js"></script>
+  <script src="assets/js/public.js"></script>
+  <script type="text/html" id="detail">
+      <div class="breadcrumb">
+        <dl>
+          <dt>当前位置：</dt>
+          <dd><a href="list.html?id={{category._id}}">{{category.title}}</a></dd>
+          <dd>{{title}}</dd>
+        </dl>
+      </div>
+      <h2 class="title">
+          {{content}}
+      </h2>
+      <div class="meta">
+        <span>{{author.nickName}} 发布于 {{createAt.substr(0,16).replace('T',' ')}}</span>
+        <span>分类: {{category.title}}</span>
+        <span>阅读: ({{meta.views}})</span>
+        <span>评论: ({{meta.comments}})</span>
+        <a id="likes" href="javascript:;" style="text-decoration:none">点赞: ({{meta.likes}})</a>
+      </div>
+  </script>
+  <!-- 评论模板 -->
+  <script type="text/html" id="commentTpl">
+    <style type="text/css">
+      .comment {
+        margin-bottom: 20px;
+      }
+      .comment textarea{
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        display: block;
+      }
+      .comment input {
+        width: 100px;
+        height: 30px;
+        margin-top: 10px;
+      }
+    </style>
+    <div class="comment">
+      <form>
+        <textarea id="pinglun"></textarea>
+        <input id="subpl" type="button" value="提交评论">
+      </form>
+    </div>
+  </script>
+  <!-- 评论列表 -->
+  <script type="text/html" id="pllists">
+    <ul class="body discuz">
+    {{each data}}
+    {{if $value.state == 1}}
+    <li>
+        <div class="avatar">
+            <img src="{{$value.author.avatar}}" alt="">
+        </div>
+        <div class="txt">
+            <p>
+            <span>{{$value.author.nickName}}</span>{{$value.createAt.substr(0,16).replace('T',' ')}}说:
+            </p>
+            <p>{{$value.content}}</p>
+        </div>
+    </li>
+    {{/if}}
+    {{/each}}
+    </ul>
+  </script>
+  <script>
+    var zuozhe;
+    var review;
+    $.ajax({
+      type:'get',
+      url:'/settings',
+      success:function(res){
+        review = res.review
+        if(res.comment) {
+            var plhtml = template('commentTpl');
+            $(".article").after(plhtml)
+        }
+      }
+    });
+    function msg(msgs){
+        $(".msgbox").show();
+        $(".msgbox span").text(msgs);
+        setTimeout(function(){
+          $(".msgbox").hide();
+        },1000)
+    }
+    if(id) {
+      $.ajax({
+        type:'get',
+        url:'/posts/' + id,
+        success:function(res){
+          zuozhe = res.author.nickName;
+          var html = template('detail',res);
+          $(".article").html(html);
+        }
+      })
+    }
+    $(".article").on('click','#likes',function(){
+      var _that = $(this);
+      $.ajax({
+        type:'post',
+        url:'/posts/fabulous/' + id,
+        success:function(res){
+          _that.html(`点赞: (${res.meta.likes})`);
+          msg('点赞成功！')
+        }
+      })
+    })
+//提交评论
+    $(".content").on('click','#subpl',function(){
+        var content = $("#pinglun").val().trim();
+        if(content.length == 0) return msg('评论不能为空');
+        //是否开启人工审核
+        if(review) {
+          state = 0
+        } else {
+          state = 1
+        }
+        $.ajax({
+            type: "post",
+            url: "/comments",
+            data: {
+                author:zuozhe,
+                content:content,
+                post:id,
+                state:state
+            },
+            success: function (res) {
+                location.reload()
+            },
+            error:function(err){
+              msg(JSON.parse(err.responseText).message);
+            }
+        });
+    })
+  //展示评论列表
+  function render(data){
+    var html = template('pllists',data);
+    $("#pllb").html(html)
+    if($("#pllb ul").children().length != 0){
+      $("#pllb").show();
+    }
+  }
+  $.ajax({
+      type: "GET",
+      url: "/comments/finde",
+      data:{
+        id:id
+      },
+      success: function (res) {
+          render({data:res})
+      }
+  });
+  </script>
+  <script>NProgress.done()</script>
 </body>
 </html>
