@@ -71,7 +71,7 @@ var znewlist = `
             <p>
             <span>{{$value.author.nickName}}</span>{{$value.createAt.substr(0,16).replace('T',' ')}}说:
             </p>
-            <p>{{$value.content}}</p>
+            <p>{{$value.content.length > 25 ? $value.content.substr(0,25) + '......' : $value.content}}</p>
         </div>
         </a>
     </li>

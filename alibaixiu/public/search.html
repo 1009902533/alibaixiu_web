@@ -67,7 +67,7 @@
           </div>
           <div class="main">
             <p class="info">{{$value.author.nickName}} 发表于 {{$value.createAt.substr(0,16).replace('T',' ')}}</p>
-            <p class="brief">{{$value.content}}</p>
+            <p class="brief">{{$value.content.length > 150 ? $value.content.substr(0,150) + '......' : $value.content}}</p>
             <p class="extra">
               <span class="reading">阅读({{$value.meta.views}})</span>
               <span class="comment">评论({{$value.meta.comments}})</span>
