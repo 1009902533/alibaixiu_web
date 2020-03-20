@@ -25,3 +25,14 @@ $.ajax({
         $("#pinglun").html(res.commentCount)
     }
 });
+//查询待审核评论数量
+$.ajax({
+    type: "GET",
+    url: "/comments/finde",
+    success: function (res) {
+        var newdata = res.filter((item)=>{
+            return item.state === 0
+        })
+        $("#dshenhe").text(newdata.length);
+    }
+});

@@ -103,8 +103,8 @@ $.ajax({
 });
 
 //搜索
-$("form").on('submit',function(){
-    var key = $('.keys').val().trim();
-    location.href = key ? `search.html?keys=${key}` : 'search.html'
+$(".search form").on('submit',function(){
+    var key = $(this).find('.keys').val();
+    location.href = key ? `/search.html?keys=${key}` : 'search.html'
     return false
 })
